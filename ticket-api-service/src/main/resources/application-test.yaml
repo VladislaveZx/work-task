@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: ticket-api-service-test
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        retry.backoff.ms: 50
+        enable.idempotence: true
+        retries: 5
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/api_service_db
+    username: postgres
+    password: postgres
+
+logging:
+  config: classpath:log4j2.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+server:
+  port: 8083
+

@@ -1,0 +1,20 @@
+POST http://localhost:8081/api/v1/tickets?status=K_bNGK4n&page=3&size=43
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-12-08T134754.400.txt
+
+###
+
+POST http://localhost:8081/api/v1/tickets
+User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.3.3
+Accept-Encoding: br, deflate, gzip, x-gzip
+Accept: */*
+content-length: 0
+
+<> 2025-12-08T132510.400.txt
+
+###
+

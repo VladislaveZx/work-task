@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: ticket-processor-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: ticket-processor-group
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      isolation-level: read_committed
+      max-poll-records: 10
+      fetch-min-bytes: 1
+      fetch-max-wait-ms: 500
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5434/proc_service_db
+    username: postgres
+    password: postgres
+
+logging:
+  config: classpath:log4j2.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus,info
+  metrics:
+    distribution:
+      percentiles-histogram:
+        "[http.server.requests]": true
+  prometheus:
+    metrics:
+      export:
+        enabled: true
+
+server:
+  port: 8082
+
