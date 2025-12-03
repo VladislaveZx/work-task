@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: ticket-api-service
+  kafka:
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+  sql:
+    init:
+      mode: always
+      platform: postgres
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/api_service_db
+    username: postgres
+    password: postgres
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+server:
+  port: 8081
+
