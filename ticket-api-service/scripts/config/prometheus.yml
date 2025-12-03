@@ -1,0 +1,13 @@
+global:
+  scrape_interval: 2s
+
+scrape_configs:
+  - job_name: 'prometheus'
+    static_configs:
+      - targets: ['localhost:9090']
+
+  # Вот этот блок отвечает за сбор метрик с вашего Spring Boot
+  - job_name: 'spring-boot'
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: ['host.docker.internal:8081']  # Ваш порт 8081
