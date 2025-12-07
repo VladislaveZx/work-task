@@ -2,17 +2,23 @@ spring:
   application:
     name: ticket-api-service
   kafka:
+    bootstrap-servers: 127.0.0.1:9092
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+    admin:
+      properties:
+        retries: 10
+        acks: all
   sql:
     init:
-      mode: always
+      mode: never
       platform: postgres
   r2dbc:
     url: r2dbc:postgresql://localhost:5433/api_service_db
     username: postgres
     password: postgres
+
 
 springdoc:
   swagger-ui:

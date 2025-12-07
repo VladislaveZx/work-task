@@ -21,9 +21,11 @@ public class Ticket {
     @Id
     private UUID id;
 
-    private String topic;
+    private String title;
 
     private String description;
+
+    private TicketCategory category;
 
     private TicketStatus status;
 

@@ -7,13 +7,16 @@ import reactor.core.publisher.Flux;
 import ru.vladislav.bekrenev.ticketapiservice.entity.Ticket;
 import ru.vladislav.bekrenev.ticketapiservice.entity.TicketStatus;
 
+import java.util.UUID;
+
 
 @Repository
-public interface TicketRepository extends ReactiveCrudRepository<Ticket, Long> {
+public interface TicketRepository extends ReactiveCrudRepository<Ticket, UUID> {
 
-    @Query("select * from tickets where status = :status limit :size offset :offset")
-    Flux<Ticket> findByStatusPaged(TicketStatus status, Integer size, Integer offset);
+    @Query("select * from tickets where status = :status limit :size offset (:page * :size)")
+    Flux<Ticket> findByStatusPaged(TicketStatus status, Integer page, Integer size);
 
-    @Query("select * from tickets limit :size offset :offset")
-    Flux<Ticket> findAllPaged(Integer size, Integer offset);
+    @Query("select * from tickets limit :size offset (:page * :size)")
+    Flux<Ticket> findAllPaged(Integer page, Integer size);
+
 }
