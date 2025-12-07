@@ -2,7 +2,7 @@ package ru.vladislav.bekrenev.ticketapiservice.util.mapper.ticketmapper;
 
 import org.springframework.stereotype.Component;
 import ru.vladislav.bekrenev.ticketapiservice.dto.TicketCreateDTO;
-import ru.vladislav.bekrenev.ticketapiservice.dto.kafkaevent.TicketCreatedEventDTO;
+import ru.vladislav.bekrenev.ticketapiservice.dto.TicketResponseDTO;
 import ru.vladislav.bekrenev.ticketapiservice.dto.kafkaevent.TicketPayload;
 import ru.vladislav.bekrenev.ticketapiservice.entity.Ticket;
 import ru.vladislav.bekrenev.ticketapiservice.entity.TicketCategory;
@@ -24,14 +24,24 @@ public class TicketMapper {
     }
 
     public static TicketPayload toPayload(Ticket ticket) {
-        return new TicketPayload(
-                ticket.getId().toString(),
-                ticket.getTitle(),
-                ticket.getDescription(),
-                ticket.getCategory().name(),
-                ticket.getStatus().name(),
-                ticket.getCreatedAt().toString()
-        );
+        return TicketPayload.builder()
+                .id(ticket.getId().toString())
+                .title(ticket.getTitle())
+                .description(ticket.getDescription())
+                .category(ticket.getCategory().name())
+                .status(ticket.getStatus().name())
+                .createdAt(ticket.getCreatedAt().toString())
+                .build();
+    }
+
+    public static TicketResponseDTO ToResponse(Ticket ticket) {
+        return TicketResponseDTO.builder()
+                .title(ticket.getTitle())
+                .description(ticket.getDescription())
+                .category(ticket.getCategory().name())
+                .status(ticket.getStatus().name())
+                .build();
+
     }
 
 }

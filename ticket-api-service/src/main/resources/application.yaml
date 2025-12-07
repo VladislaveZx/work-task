@@ -19,6 +19,29 @@ spring:
     username: postgres
     password: postgres
 
+#logging:
+#  config: classpath:log/log4j2.xml
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,prometheus
+logging:
+  level:
+    ru.vladislav.bekrenev.ticketapiservice: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.validation: DEBUG
+    org.springframework.http.codec: DEBUG
+
+#  metrics:
+#    distribution:
+#      percentiles-histogram:
+#        "[http.server.requests]": true
+#  prometheus:
+#    metrics:
+#      export:
+#        enabled: true
 
 springdoc:
   swagger-ui:

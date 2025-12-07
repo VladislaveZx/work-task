@@ -22,7 +22,6 @@ public class KafkaConfig {
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class,
                 ProducerConfig.ACKS_CONFIG, "all"
         );
-
         SenderOptions<String, String> senderOptions = SenderOptions.create(props);
 
         return KafkaSender.create(senderOptions);
