@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import reactor.kafka.sender.KafkaSender;
 import reactor.kafka.sender.SenderRecord;
+import ru.vladislav.bekrenev.ticketapiservice.annotation.LogExecution;
 
 @Component
 @RequiredArgsConstructor
@@ -15,6 +16,7 @@ public class KafkaProducer {
     private final KafkaSender<String, String> kafkaSender;
 
 
+    @LogExecution
     public Mono<Void> send(String topic, String key, String value) {
 
         SenderRecord<String, String, String> record =

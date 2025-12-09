@@ -8,31 +8,27 @@ spring:
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
     admin:
       properties:
-        retries: 10
+        retry.backoff.ms: 50
+        enable.idempotence: true
+        retries: 5
         acks: all
   sql:
     init:
-      mode: never
       platform: postgres
   r2dbc:
     url: r2dbc:postgresql://localhost:5433/api_service_db
     username: postgres
     password: postgres
 
-#logging:
-#  config: classpath:log/log4j2.xml
+logging:
+  config: classpath:log4j2.xml
 
 management:
   endpoints:
     web:
       exposure:
         include: health,prometheus
-logging:
-  level:
-    ru.vladislav.bekrenev.ticketapiservice: DEBUG
-    org.springframework.web: DEBUG
-    org.springframework.validation: DEBUG
-    org.springframework.http.codec: DEBUG
+
 
 #  metrics:
 #    distribution:
@@ -43,13 +39,6 @@ logging:
 #      export:
 #        enabled: true
 
-springdoc:
-  swagger-ui:
-    path: /swagger-ui.html
-    enabled: true
-  api-docs:
-    path: /v3/api-docs
-    enabled: true
 server:
   port: 8081
 

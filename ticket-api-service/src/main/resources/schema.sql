@@ -1,5 +1,3 @@
-create extension if not exists "pgcrypto";
-
 create table tickets (
                          id uuid primary key default gen_random_uuid(),
                          title varchar(255) not null,
@@ -7,4 +5,4 @@ create table tickets (
                          category varchar(50) not null,
                          status varchar(50) not null,
                          created_at timestamp not null
-);
+)

@@ -34,7 +34,7 @@ public class TicketMapper {
                 .build();
     }
 
-    public static TicketResponseDTO ToResponse(Ticket ticket) {
+    public static TicketResponseDTO toResponse(Ticket ticket) {
         return TicketResponseDTO.builder()
                 .title(ticket.getTitle())
                 .description(ticket.getDescription())

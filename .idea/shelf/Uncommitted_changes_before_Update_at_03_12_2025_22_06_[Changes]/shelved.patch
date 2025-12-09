@@ -1,0 +1,47 @@
+Index: .idea/sqldialects.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/sqldialects.xml b/.idea/sqldialects.xml
+new file mode 100644
+--- /dev/null	(date 1764788729807)
++++ b/.idea/sqldialects.xml	(date 1764788729807)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="SqlDialectMappings">
++    <file url="file://$PROJECT_DIR$/ticket-api-service/src/main/resources/schema.sql" dialect="PostgreSQL" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+new file mode 100644
+--- /dev/null	(date 1764788729799)
++++ b/.idea/dataSources.xml	(date 1764788729799)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
++    <data-source source="LOCAL" name="api_service_db@localhost" uuid="e1cc2cca-31fe-40cb-91a2-5a0f32ac8daa">
++      <driver-ref>postgresql</driver-ref>
++      <synchronize>true</synchronize>
++      <imported>true</imported>
++      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
++      <jdbc-url>jdbc:postgresql://localhost:5433/api_service_db</jdbc-url>
++      <jdbc-additional-properties>
++        <property name="com.intellij.clouds.kubernetes.db.host.port" />
++        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
++        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
++        <property name="com.intellij.clouds.kubernetes.db.container.port" />
++      </jdbc-additional-properties>
++      <working-dir>$ProjectFileDir$</working-dir>
++    </data-source>
++  </component>
++</project>
+\ No newline at end of file

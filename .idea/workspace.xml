@@ -5,18 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3b1567a-15b4-4afe-b460-85cc5891a12d" name="Changes" comment="Initial commit">
-      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricsConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/dto/TicketResponseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/context/MdcContextLifter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/context/ReactorContextConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/exeption/TicketNotFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/test/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/TicketApiServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/TicketApiServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/annotation/LogExecution.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/annotation/LogExecution.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/controller/TicketController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/filter/CorrelationIdWebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/filter/CorrelationIdWebFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/repository/TicketRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/repository/TicketRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/publisher/TicketEventPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/publisher/TicketEventPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/KafkaProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/KafkaProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/util/mapper/ticketmapper/TicketMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/util/mapper/ticketmapper/TicketMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/resources/schema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/resources/schema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +34,11 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="AnnotationType" />
         <option value="HTML File" />
         <option value="Dockerfile" />
+        <option value="JUnit5 Test Class" />
+        <option value="Exception" />
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
@@ -38,7 +46,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="day-1" />
+        <entry key="$PROJECT_DIR$" value="day-3" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,50 +83,67 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Docker.docker-compose.yaml.api-service-db: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml.grafana: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml.proc-service-db: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml.prometheus: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yaml: Compose Deployment.executor": "Run",
-    "Docker.grafana/Dockerfile.executor": "Run",
-    "Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Spring Boot.TicketApiServiceApplication.executor": "Run",
-    "git-widget-placeholder": "day-3",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Владислав/Desktop/untitled/ticket-proc-service/src/main/java/ru/vladislav/bekrenev/ticketprocservice",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "bigdataide_conn_settings",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Docker.docker-compose.yaml.api-service-db: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml.grafana: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml.proc-service-db: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml.prometheus: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml.zookeeper: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.docker-compose.yaml: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.grafana/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.TicketApiServiceApplication | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;Maven. [org.apache.maven.plugins:maven-archetype-plugin:RELEASE:generate].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ticket-api-service [org.apache.maven.plugins:maven-clean-plugin:3.5.0:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ticket-api-service [org.apache.maven.plugins:maven-compiler-plugin:3.14.1:compile].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.ticket-api-service [org.apache.maven.plugins:maven-install-plugin:3.1.4:install].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.TicketApiServiceApplication.executor&quot;: &quot;Run&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;day-4&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Владислав/Desktop/untitled/ticket-proc-service/src/main/java/ru/vladislav/bekrenev/ticketprocservice&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;run.configurations.included.in.services&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;bigdataide_conn_settings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Владислав\Desktop\untitled\ticket-proc-service\src\main\java\ru\vladislav\bekrenev\ticketprocservice" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Владислав\Desktop\untitled\ticket-api-service\src\main\resources" />
       <recent name="C:\Users\Владислав\Desktop\untitled\ticket-api-service\scripts\config\prometheus.yml" />
       <recent name="C:\Users\Владислав\Desktop\untitled\ticket-api-service" />
       <recent name="C:\Users\Владислав\Desktop\untitled" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.vladislav.bekrenev.ticketapiservice.service" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -132,6 +157,12 @@
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.TicketApiServiceApplication">
+    <configuration name="TicketApiServiceApplication | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/TicketApiServiceApplication.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="TicketApiServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
       <module name="ticket-api-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.vladislav.bekrenev.ticketapiservice.TicketApiServiceApplication" />
@@ -160,7 +191,9 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yaml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
@@ -200,35 +233,23 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yaml.zookeeper: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="commandLineOptions" value="--build" />
-          <option name="services">
-            <list>
-              <option value="zookeeper" />
-            </list>
-          </option>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
-    <configuration name="grafana/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="ticket-api-service/scripts/config/grafana/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
+    <list>
+      <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yaml.grafana: Compose Deployment" />
+      <item itemvalue="Docker.docker-compose.yaml.prometheus: Compose Deployment" />
+      <item itemvalue="HTTP Request.TicketApiServiceApplication | #1" />
+      <item itemvalue="HTTP Request.generated-requests | #1" />
+      <item itemvalue="Spring Boot.TicketApiServiceApplication" />
+      <item itemvalue="Spring Boot.TicketProcServiceApplication" />
+      <item itemvalue="Spring Boot.TicketProcessorServiceApplication" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yaml.grafana: Compose Deployment" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.TicketApiServiceApplication | #1" />
         <item itemvalue="Docker.docker-compose.yaml.prometheus: Compose Deployment" />
-        <item itemvalue="Docker.grafana/Dockerfile" />
-        <item itemvalue="Docker.docker-compose.yaml.zookeeper: Compose Deployment" />
+        <item itemvalue="Docker.docker-compose.yaml.grafana: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -256,7 +277,12 @@
       <workItem from="1764950021925" duration="1784000" />
       <workItem from="1764959599288" duration="1066000" />
       <workItem from="1765005072304" duration="18273000" />
-      <workItem from="1765094608824" duration="30494000" />
+      <workItem from="1765094608824" duration="31505000" />
+      <workItem from="1765175695131" duration="28247000" />
+      <workItem from="1765226291626" duration="1316000" />
+      <workItem from="1765262786039" duration="2024000" />
+      <workItem from="1765268755883" duration="13000" />
+      <workItem from="1765280705792" duration="18966000" />
     </task>
     <task id="LOCAL-00001" summary="Initial commit">
       <option name="closed" value="true" />
@@ -274,7 +300,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765103823695</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1765137861910</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1765137861910</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
