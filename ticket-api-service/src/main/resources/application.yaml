@@ -11,7 +11,6 @@ spring:
         retry.backoff.ms: 50
         enable.idempotence: true
         retries: 5
-        acks: all
   sql:
     init:
       platform: postgres

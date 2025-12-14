@@ -5,13 +5,12 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 import ru.vladislav.bekrenev.ticketapiservice.dto.TicketCreateDTO;
-
-import static org.junit.jupiter.api.Assertions.*;
+import ru.vladislav.bekrenev.ticketapiservice.service.impl.TicketServiceImpl;
 
 class TicketServiceTest {
 
     @InjectMocks
-    private TicketService ticketService;
+    private TicketServiceImpl ticketService;
 
     @BeforeEach
     void setUp() {

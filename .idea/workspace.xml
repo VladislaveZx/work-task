@@ -5,19 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3b1567a-15b4-4afe-b460-85cc5891a12d" name="Changes" comment="Initial commit">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8122be1-2e1c-483c-bbe5-a5f0482f775d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8122be1-2e1c-483c-bbe5-a5f0482f775d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/impl/TicketServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/grafana/alerting/1/__default__.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/alerting/1/__default__.tmpl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/grafana/grafana.db" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/grafana.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000002" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000003" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus/wal/00000000" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/prometheus/wal/00000001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/filter/CorrelationIdWebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/filter/CorrelationIdWebFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000004" beforeDir="false" afterPath="$PROJECT_DIR$/prometheus/chunks_head/000004" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/wal/00000004" beforeDir="false" afterPath="$PROJECT_DIR$/prometheus/wal/00000004" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/controller/TicketController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/controller/TicketController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/test/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/test/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/src/main/java/ru/vladislav/bekrenev/ticketprocservice/TicketProcServiceApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/src/main/resources/schema.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-proc-service/src/test/java/ru/vladislav/bekrenev/ticketprocservice/TicketProcServiceApplicationTests.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +37,6 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="HTML File" />
         <option value="Dockerfile" />
@@ -35,6 +44,7 @@
         <option value="Exception" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -107,15 +117,15 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "#3 on feature-jvm-metrics",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Владислав/Desktop/untitled/ticket-proc-service/src/main/java/ru/vladislav/bekrenev/ticketprocservice",
+    "last_opened_file_path": "C:/Users/Владислав/Desktop/untitled/ticket-processor-service",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
     "run.configurations.included.in.services": "true",
     "settings.editor.selected.configurable": "bigdataide_conn_settings",
     "vue.rearranger.settings.migration": "true"
@@ -303,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1765137861910</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Initial commit">
+      <option name="closed" value="true" />
+      <created>1765729555699</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1765729555699</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
