@@ -1,0 +1,35 @@
+Index: ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricsConfig.java
+===================================================================
+diff --git a/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricsConfig.java b/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricsConfig.java
+deleted file mode 100644
+--- a/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/config/MetricsConfig.java	(revision b997899f9d88eef66e5415d2ff59286f335926f3)
++++ /dev/null	(revision b997899f9d88eef66e5415d2ff59286f335926f3)
+@@ -1,8 +0,0 @@
+-package ru.vladislav.bekrenev.ticketapiservice.config;
+-
+-import org.springframework.context.annotation.Configuration;
+-
+-@Configuration
+-public class MetricsConfig {
+-
+-}
+Index: ticket-proc-service/src/main/resources/schema.sql
+===================================================================
+diff --git a/ticket-proc-service/src/main/resources/schema.sql b/ticket-proc-service/src/main/resources/schema.sql
+deleted file mode 100644
+--- a/ticket-proc-service/src/main/resources/schema.sql	(revision b997899f9d88eef66e5415d2ff59286f335926f3)
++++ /dev/null	(revision b997899f9d88eef66e5415d2ff59286f335926f3)
+@@ -1,12 +0,0 @@
+-CREATE TABLE processed_tickets (
+-    id UUID PRIMARY KEY,
+-    title VARCHAR(255) NOT NULL,
+-    description TEXT,
+-    category VARCHAR(50) NOT NULL,
+-    status VARCHAR(50) NOT NULL,
+-    created_at TIMESTAMP NOT NULL,
+-    priority VARCHAR(50) NOT NULL,
+-    sla_hours INT NOT NULL,
+-    processed_at TIMESTAMP NOT NULL
+-
+-);
+\ No newline at end of file
