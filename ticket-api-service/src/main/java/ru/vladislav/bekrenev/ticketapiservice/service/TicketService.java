@@ -46,16 +46,12 @@ public class TicketService {
                         publishToKafka(savedTicket, correlationId)
                                 .thenReturn(savedTicket)
                 )
-
                 .flatMap(savedTicket -> {
-
-                        Mono.deferContextual(ctx -> {
-
+                    return Mono.deferContextual(ctx -> {
                         Map<String, String> oldContext = ctx.getOrDefault(
                                 CorrelationIdWebFilter.MDC_CONTEXT_KEY,
                                 new HashMap<>()
                         );
-
                         Map<String, String> newContext = new HashMap<>(oldContext);
                         newContext.put("ticketId", savedTicket.getId().toString());
                         newContext.put("category", savedTicket.getCategory().name());

@@ -61,7 +61,43 @@ services:
     ports:
       - "5434:5432"
 
+  grafana:
+    image: grafana/grafana:10.4.2
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./ticket-api-service/scripts/config/grafana/provisioning:/etc/grafana/provisioning
+      - ./grafana:/var/lib/grafana
+      - ./ticket-api-service/scripts/config/grafana/dashboards:/etc/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_INSTALL_PLUGINS=grafana-clock-panel,grafana-simple-json-datasource
+    networks:
+      monitoring:
+        aliases:
+          - grafana
+
+  prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - ./ticket-api-service/scripts/config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus:/prometheus
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    networks:
+      monitoring:
+        aliases:
+          - prometheus
+
 networks:
   kafka-net:
     name: kafka-net
+    driver: bridge
+  monitoring:
+    name: monitoring
     driver: bridge

@@ -1,0 +1,18 @@
+{
+	"ulid": "01KCET90148M6NYPTGQ1Q0FEKR",
+	"minTime": 1765648800398,
+	"maxTime": 1765656000000,
+	"stats": {
+		"numSamples": 160744,
+		"numFloatSamples": 160744,
+		"numSeries": 1287,
+		"numChunks": 2085
+	},
+	"compaction": {
+		"level": 1,
+		"sources": [
+			"01KCET90148M6NYPTGQ1Q0FEKR"
+		]
+	},
+	"version": 1
+}

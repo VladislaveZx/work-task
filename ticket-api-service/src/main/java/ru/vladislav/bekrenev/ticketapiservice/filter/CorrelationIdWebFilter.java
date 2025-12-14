@@ -12,6 +12,7 @@ import reactor.core.publisher.Mono;
 import reactor.util.context.Context;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -23,8 +24,22 @@ public class CorrelationIdWebFilter implements WebFilter {
     public static final String CORRELATION_ID_KEY = "correlationId";
     public static final String MDC_CONTEXT_KEY = "mdcContext";
 
+    private static final List<String> EXCLUDED_PATHS = List.of(
+            "/actuator/health",
+            "/actuator/prometheus",
+            "/actuator/metrics",
+            "/actuator/info",
+            "/actuator"
+    );
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
+        String path = exchange.getRequest().getPath().value();
+
+        if (EXCLUDED_PATHS.stream().anyMatch(path::startsWith)) {
+            log.debug("Skipping correlation ID check for path: {}", path);
+            return chain.filter(exchange);
+        }
 
         String correlationId = exchange.getRequest().getHeaders().getFirst(CORRELATION_ID_HEADER);
 
@@ -42,17 +57,14 @@ public class CorrelationIdWebFilter implements WebFilter {
 
         exchange.getResponse().getHeaders().add(CORRELATION_ID_HEADER, correlationId);
 
-        // Создаем контекст для ThreadContext
         Map<String, String> threadContextMap = new HashMap<>();
         threadContextMap.put(CORRELATION_ID_KEY, correlationId);
         threadContextMap.put("method", exchange.getRequest().getMethod().name());
-        threadContextMap.put("path", exchange.getRequest().getPath().value());
+        threadContextMap.put("path", path); // Используем уже полученный path
         threadContextMap.put("service", "ticket-api-service");
 
-        // Устанавливаем в ThreadContext для текущего потока
         ThreadContext.putAll(threadContextMap);
 
-        // Помещаем в Reactor Context для передачи между потоками
         Context reactorContext = Context.of(MDC_CONTEXT_KEY, threadContextMap);
 
         return chain.filter(exchange)
@@ -60,7 +72,6 @@ public class CorrelationIdWebFilter implements WebFilter {
                 .doFinally(signalType -> {
                     HttpStatus status = (HttpStatus) exchange.getResponse().getStatusCode();
                     if (status != null) {
-                        // Убедимся, что ThreadContext восстановлен перед логированием
                         log.info("Request completed with status: {}", status.value());
                     }
                     ThreadContext.clearAll();

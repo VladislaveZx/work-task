@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a3b1567a-15b4-4afe-b460-85cc5891a12d" name="Changes" comment="Initial commit" />
+    <list default="true" id="a3b1567a-15b4-4afe-b460-85cc5891a12d" name="Changes" comment="Initial commit">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e8122be1-2e1c-483c-bbe5-a5f0482f775d.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e8122be1-2e1c-483c-bbe5-a5f0482f775d.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/alerting/1/__default__.tmpl" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/alerting/1/__default__.tmpl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/grafana/grafana.db" beforeDir="false" afterPath="$PROJECT_DIR$/grafana/grafana.db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000002" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/chunks_head/000003" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/wal/00000000" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prometheus/wal/00000001" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/filter/CorrelationIdWebFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/filter/CorrelationIdWebFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/java/ru/vladislav/bekrenev/ticketapiservice/service/TicketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ticket-api-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/ticket-api-service/src/main/resources/application.yaml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,7 +105,7 @@
     "Spring Boot.TicketApiServiceApplication.executor": "Run",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "feature-jvm-metrics",
+    "git-widget-placeholder": "#3 on feature-jvm-metrics",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Владислав/Desktop/untitled/ticket-proc-service/src/main/java/ru/vladislav/bekrenev/ticketprocservice",
     "node.js.detected.package.eslint": "true",
@@ -226,11 +240,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
         <item itemvalue="HTTP Request.generated-requests | #1" />
         <item itemvalue="HTTP Request.TicketApiServiceApplication | #1" />
         <item itemvalue="Docker.docker-compose.yaml.prometheus: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yaml.grafana: Compose Deployment" />
-        <item itemvalue="Docker.docker-compose.yaml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
