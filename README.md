@@ -151,20 +151,20 @@ cd distributed-ticket-system
 **Шаг 2: Сборка артефактов**
 
 ```
-mvn clean package -DskipTests
+mvn clean package 
 ```
 
 **Шаг 3: Запуск инфраструктурных сервисов**
 
 ```
-docker-compose up -d postgres-kafka
+docker-compose up -d 
 ```
 
 **Шаг 4: Запуск микросервисов**
 
 ```
-java -jar ticket-api-service/target/ticket-api-service-1.0.0.jar
-java -jar ticket-processor-service/target/ticket-processor-service-1.0.0.jar
+java -jar ticket-api-service/target/ticket-api-service.jar
+java -jar ticket-processor-service/target/ticket-processor-service.jar
 ```
 
 **6\. Мониторинг и диагностика**
