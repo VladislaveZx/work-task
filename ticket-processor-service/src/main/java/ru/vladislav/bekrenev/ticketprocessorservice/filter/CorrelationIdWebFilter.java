@@ -9,11 +9,8 @@ import org.springframework.web.server.ServerWebExchange;
 import org.springframework.web.server.WebFilter;
 import org.springframework.web.server.WebFilterChain;
 import reactor.core.publisher.Mono;
-import reactor.util.context.Context;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Component
 @Order(1)
@@ -21,8 +18,7 @@ import java.util.Map;
 public class CorrelationIdWebFilter implements WebFilter {
 
     private static final String CORRELATION_ID_HEADER = "X-Correlation-Id";
-    public static final String CORRELATION_ID_KEY = "correlationId";
-    public static final String MDC_CONTEXT_KEY = "mdcContext";
+    private static final String CORRELATION_ID_KEY = "correlationId";
 
     private static final List<String> EXCLUDED_PATHS = List.of(
             "/actuator/health",
@@ -45,30 +41,18 @@ public class CorrelationIdWebFilter implements WebFilter {
 
         if (correlationId == null || correlationId.isBlank()) {
             exchange.getResponse().setStatusCode(HttpStatus.BAD_REQUEST);
-            return exchange.getResponse().setComplete()
-                    .then(Mono.defer(() -> {
-                        String errorMessage = "{\"error\": \"Missing required header: X-Correlation-Id\"}";
-                        return exchange.getResponse().writeWith(
-                                Mono.just(exchange.getResponse().bufferFactory()
-                                        .wrap(errorMessage.getBytes()))
-                        );
-                    }));
+            String errorMessage = "{\"error\": \"Missing required header: X-Correlation-Id\"}";
+            return exchange.getResponse().writeWith(
+                    Mono.just(exchange.getResponse().bufferFactory()
+                            .wrap(errorMessage.getBytes()))
+            );
         }
 
         exchange.getResponse().getHeaders().add(CORRELATION_ID_HEADER, correlationId);
 
-        Map<String, String> MDC = new HashMap<>();
-        MDC.put(CORRELATION_ID_KEY, correlationId);
-        MDC.put("method", exchange.getRequest().getMethod().name());
-        MDC.put("path", path);
-        MDC.put("service", "ticket-api-service");
-
-        ThreadContext.putAll(MDC);
-
-        Context reactorContext = Context.of(MDC_CONTEXT_KEY, MDC);
+        ThreadContext.put(CORRELATION_ID_KEY, correlationId);
 
         return chain.filter(exchange)
-                .contextWrite(reactorContext)
                 .doFinally(signalType -> {
                     HttpStatus status = (HttpStatus) exchange.getResponse().getStatusCode();
                     if (status != null) {

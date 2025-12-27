@@ -27,7 +27,6 @@ services:
     depends_on:
       - zookeeper
 
-
   kafdrop:
     image: obsidiandynamics/kafdrop
     container_name: kafdrop
@@ -68,11 +67,10 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      # Правильные пути:
-      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources  # для datasource.yml
-      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards    # для all.yaml
+      - ./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources
+      - ./grafana/provisioning/dashboards:/etc/grafana/provisioning/dashboards
       - ./grafana_data:/var/lib/grafana
-      - ./grafana/dashboards:/etc/grafana/dashboards                               # для JSON дашбордов
+      - ./grafana/dashboards:/etc/grafana/dashboards
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -81,7 +79,7 @@ services:
       - monitoring
 
   prometheus:
-    image: prom/prometheus:latest  # или конкретная версия
+    image: prom/prometheus:latest
     container_name: prometheus
     ports:
       - "9090:9090"
@@ -95,7 +93,6 @@ services:
       - '--web.enable-lifecycle'
     networks:
       - monitoring
-
 
 networks:
   kafka-net:

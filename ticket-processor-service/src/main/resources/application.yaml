@@ -7,12 +7,9 @@ spring:
       group-id: ticket-processor-group
       auto-offset-reset: earliest
       enable-auto-commit: false
-      isolation-level: read_committed
-      max-poll-records: 10
-      fetch-min-bytes: 1
-      fetch-max-wait-ms: 500
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
   r2dbc:
     url: r2dbc:postgresql://localhost:5434/proc_service_db
     username: postgres
@@ -20,6 +17,10 @@ spring:
 
 logging:
   config: classpath:log4j2.xml
+
+kafka:
+  topics:
+    tickets-created: tickets.created
 
 management:
   endpoints:

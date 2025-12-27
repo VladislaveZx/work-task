@@ -1,6 +1,5 @@
 package ru.vladislav.bekrenev.ticketprocessorservice.config.metric;
 
-import io.micrometer.core.instrument.Counter;
 import io.micrometer.core.instrument.Gauge;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Timer;
@@ -14,50 +13,93 @@ import java.util.concurrent.atomic.AtomicInteger;
 @RequiredArgsConstructor
 public class MetricConfig {
 
-    public static final String TICKET_API_TICKETS_CREATED_TOTAL = "ticket_api_tickets_created_total";
-    public static final String TICKET_API_DATABASE_SAVE_TIME = "ticket_api_database_save_time";
-    public static final String TICKET_API_KAFKA_MESSAGES_SENT_TOTAL = "ticket_api_kafka_messages_sent_total";
-    public static final String TICKET_API_KAFKA_AVAILABLE = "ticket_api_kafka_available";
-    public static final String TICKET_API_REQUEST_LATENCY = "ticket_api_request_latency";
-    public static final String TICKET_API_TICKETS_NEW_COUNT = "ticket_api_tickets_new_count";
-    public static final String TICKET_API_DATABASE_ERROR = "ticket_api_database_error";
+    public static final String TICKET_PROCESSOR_MESSAGES_CONSUMED_TOTAL =
+            "ticket_processor_messages_consumed_total";
+    public static final String TICKET_PROCESSOR_MESSAGES_FAILED_TOTAL =
+            "ticket_processor_messages_failed_total";
+    public static final String TICKET_PROCESSOR_DATABASE_ERRORS_TOTAL =
+            "ticket_processor_database_errors_total";
+    public static final String TICKET_PROCESSOR_MESSAGE_PROCESSING_TIME =
+            "ticket_processor_message_processing_time";
+    public static final String TICKET_PROCESSOR_DATABASE_SAVE_TIME =
+            "ticket_processor_database_save_time";
+    public static final String TICKET_PROCESSOR_REQUEST_LATENCY =
+            "ticket_processor_request_latency";
+    public static final String TICKET_PROCESSOR_KAFKA_AVAILABLE =
+            "ticket_processor_kafka_available";
 
     private final MeterRegistry meterRegistry;
 
-    private final AtomicInteger newTicketsCount = new AtomicInteger(0);
-
+    private final AtomicInteger kafkaAvailable = new AtomicInteger(1);
 
     @PostConstruct
     public void initMetrics() {
-        Counter.builder(TICKET_API_DATABASE_ERROR)
-                .description("databases error")
-                .register(meterRegistry);
 
-        Counter.builder(TICKET_API_TICKETS_CREATED_TOTAL)
-                .description("Total number of tickets created")
-                .register(meterRegistry);
+        meterRegistry.counter(TICKET_PROCESSOR_MESSAGES_CONSUMED_TOTAL);
+        meterRegistry.counter(TICKET_PROCESSOR_MESSAGES_FAILED_TOTAL);
+        meterRegistry.counter(TICKET_PROCESSOR_DATABASE_ERRORS_TOTAL);
 
-        Counter.builder(TICKET_API_KAFKA_MESSAGES_SENT_TOTAL)
-                .description("Total number of Kafka messages sent successfully")
-                .register(meterRegistry);
-
-        Counter.builder(TICKET_API_KAFKA_AVAILABLE)
-                .description("Count of Kafka connection errors")
-                .register(meterRegistry);
-
-        Gauge.builder(TICKET_API_TICKETS_NEW_COUNT, newTicketsCount, AtomicInteger::get)
-                .description("Current number of tickets with NEW status")
-                .register(meterRegistry);
-
-        Timer.builder(TICKET_API_DATABASE_SAVE_TIME)
-                .description("Time taken to save ticket to database")
+        Timer.builder(TICKET_PROCESSOR_MESSAGE_PROCESSING_TIME)
+                .description("Time taken to process Kafka message")
                 .publishPercentiles(0.5, 0.95, 0.99)
                 .register(meterRegistry);
 
-        Timer.builder(TICKET_API_REQUEST_LATENCY)
-                .description("HTTP request latency for ticket operations")
+        Timer.builder(TICKET_PROCESSOR_DATABASE_SAVE_TIME)
+                .description("Time taken to save processed ticket to database")
                 .publishPercentiles(0.5, 0.95, 0.99)
+                .register(meterRegistry);
+
+        Timer.builder(TICKET_PROCESSOR_REQUEST_LATENCY)
+                .description("HTTP request latency for processed tickets operations")
+                .publishPercentiles(0.5, 0.95, 0.99)
+                .register(meterRegistry);
+
+        Gauge.builder(
+                        TICKET_PROCESSOR_KAFKA_AVAILABLE,
+                        kafkaAvailable,
+                        AtomicInteger::get
+                )
+                .description("Kafka connection availability (1=available, 0=unavailable)")
                 .register(meterRegistry);
     }
 
+    public void incrementMessagesConsumed() {
+        meterRegistry.counter(TICKET_PROCESSOR_MESSAGES_CONSUMED_TOTAL).increment();
+    }
+
+    public void incrementMessagesFailed() {
+        meterRegistry.counter(TICKET_PROCESSOR_MESSAGES_FAILED_TOTAL).increment();
+    }
+
+    public void incrementDatabaseErrors() {
+        meterRegistry.counter(TICKET_PROCESSOR_DATABASE_ERRORS_TOTAL).increment();
+    }
+
+    public void setKafkaAvailable(boolean available) {
+        kafkaAvailable.set(available ? 1 : 0);
+    }
+
+    public Timer.Sample startMessageProcessingTimer() {
+        return Timer.start(meterRegistry);
+    }
+
+    public void recordMessageProcessingTime(Timer.Sample sample) {
+        sample.stop(meterRegistry.timer(TICKET_PROCESSOR_MESSAGE_PROCESSING_TIME));
+    }
+
+    public Timer.Sample startDatabaseSaveTimer() {
+        return Timer.start(meterRegistry);
+    }
+
+    public void recordDatabaseSaveTime(Timer.Sample sample) {
+        sample.stop(meterRegistry.timer(TICKET_PROCESSOR_DATABASE_SAVE_TIME));
+    }
+
+    public Timer.Sample startRequestLatencyTimer() {
+        return Timer.start(meterRegistry);
+    }
+
+    public void recordRequestLatency(Timer.Sample sample) {
+        sample.stop(meterRegistry.timer(TICKET_PROCESSOR_REQUEST_LATENCY));
+    }
 }

@@ -60,8 +60,6 @@ public class MetricConfig {
                 .register(meterRegistry);
     }
 
-
-    //todo - убрать методы
     public void incrementDatabaseErrors(){
         meterRegistry.counter(TICKET_API_DATABASE_ERROR).increment();
     }

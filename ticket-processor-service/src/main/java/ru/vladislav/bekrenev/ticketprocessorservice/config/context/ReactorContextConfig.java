@@ -11,18 +11,18 @@ import reactor.core.publisher.Operators;
 @Slf4j
 public class ReactorContextConfig {
 
-    public static final String CONTEXT_KEY = "mdcContext";
+    public static final String CONTEXT_KEY = "mdc-context";
 
     @PostConstruct
-    public void contextOperatorHook(){
+    public void contextOperatorHook() {
         Hooks.onEachOperator(CONTEXT_KEY,
-                Operators.lift((sc, subscriber)->
+                Operators.lift((sc, subscriber) ->
                         new MdcContextLifter<>(subscriber)));
         log.info("MDC context propagation enabled");
     }
 
     @PreDestroy
-    public void cleanupHook(){
+    public void cleanupHook() {
         Hooks.resetOnEachOperator(CONTEXT_KEY);
         log.info("MDC context propagation cleanup");
     }
